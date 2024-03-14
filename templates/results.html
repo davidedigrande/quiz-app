@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Risultati</title>
+    <style>
+        body {
+            position: relative;
+            min-height: 100vh;
+        }
+
+        footer {
+            position: relative;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            text-align: center;
+        }
+        .max-score {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="max-score">
+        Punteggio Massimo: {{ session.max_score }}
+    </div>
+    <h2>Risultati</h2>
+    <p>Hai ottenuto {{ score }} punti su {{ total }} !</p>
+    <button onclick="window.history.back()">Torna alla pagina precedente</button>
+    <footer>
+        <p>&copy; 2024 - Davide Di Grande</p>
+    </footer>
+</body>
+</html>

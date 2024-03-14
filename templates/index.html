@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz</title>
+    <style>
+        body {
+            position: relative;
+            min-height: 100vh;
+        }
+
+        footer {
+            position: relative;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            text-align: center;
+        }
+        .max-score {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="max-score">
+        Punteggio Massimo: {{ session.max_score }}
+    </div>
+    <form action="/result" method="post">
+        {% for question, answers in questions.items() %}
+        <h2>{{ question.text }}</h2>
+        {% for answer in answers %}
+        <input type="radio" name="{{ question.id }}" value="{{ answer.id }}" {% if loop.first %}checked{% endif %}> {{ answer.text }}<br>
+        {% endfor %}
+        {% endfor %}
+        <br>
+        <input type="submit" value="Submit Answers">
+    </form>
+    <footer>
+        <p>&copy; 2024 - Davide Di Grande</p>
+    </footer>
+</body>
+</html>
+
